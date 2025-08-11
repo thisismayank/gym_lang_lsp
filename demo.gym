@@ -1,0 +1,52 @@
+# GymLang LSP Demo - Testing All Features! 💪
+# This file demonstrates all GymLang commands for LSP testing
+
+# Variable Declaration
+BRO bench 135
+RACK squat 185
+BRO deadlift 225
+
+# Arithmetic Operations
+BULK bench 10
+LIFT squat 15
+DROP deadlift 5
+SHRED bench 3
+GAINS squat 1.1
+CUT deadlift 2
+
+# Output Commands
+FLEX bench
+FLEX squat
+FLEX deadlift
+
+# Math Operations
+REPS 10 20 30
+SETS 3 5 2
+PUMP bench squat deadlift
+GRIND bench squat deadlift
+
+# Special Operations
+YOLO bench
+SWOLE squat
+BEAST deadlift
+SAVAGE bench
+
+# More Special Operations
+LEGDAY squat
+CARDIO bench
+PROTEIN deadlift
+CREATINE bench
+STEROIDS squat
+
+# Output and Motivation
+MOTIVATION "No pain, no gain!"
+NOEXCUSES bench
+HUSTLE squat
+GRINDMODE deadlift
+
+# String operations
+FLEX "Gains are forever!"
+MOTIVATION "Push your limits!"
+
+# This line has an error for testing diagnostics
+UNKNOWN_COMMAND test 

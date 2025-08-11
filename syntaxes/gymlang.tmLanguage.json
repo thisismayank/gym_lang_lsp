@@ -1,0 +1,85 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "GymLang",
+  "scopeName": "source.gymlang",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#commands"
+    },
+    {
+      "include": "#variables"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.number-sign.gymlang",
+          "match": "#.*$",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.comment.gymlang"
+            }
+          }
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.gymlang",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.gymlang",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.integer.gymlang",
+          "match": "\\b\\d+\\b"
+        },
+        {
+          "name": "constant.numeric.float.gymlang",
+          "match": "\\b\\d+\\.\\d+\\b"
+        }
+      ]
+    },
+    "commands": {
+      "patterns": [
+        {
+          "name": "keyword.control.gymlang",
+          "match": "\\b(RACK|BRO|LIFT|BULK|DROP|SHRED|GAINS|CUT|REPS|SETS|FLEX|PUMP|GRIND|YOLO|SWOLE|BEAST|SAVAGE|LEGDAY|CARDIO|PROTEIN|CREATINE|STEROIDS|MOTIVATION|NOEXCUSES|HUSTLE|GRINDMODE)\\b",
+          "captures": {
+            "1": {
+              "name": "entity.name.function.gymlang"
+            }
+          }
+        }
+      ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "name": "variable.other.gymlang",
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+        }
+      ]
+    }
+  }
+}

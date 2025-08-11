@@ -1,0 +1,109 @@
+{
+  "name": "gymlang-lsp",
+  "displayName": "GymLang Language Server",
+  "description": "Language Server Protocol implementation for GymLang - the programming language for gym bros! 💪",
+  "version": "1.0.0",
+  "publisher": "mayankarya",
+  "engines": {
+    "vscode": "^1.60.0",
+    "node": ">=14.0.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "keywords": [
+    "gymlang",
+    "programming-language",
+    "gym",
+    "fitness",
+    "bro",
+    "gains",
+    "lsp",
+    "language-server"
+  ],
+  "author": "Mayank Arya",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thisismayank/gymlang-lsp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thisismayank/gymlang-lsp/issues"
+  },
+  "homepage": "https://github.com/thisismayank/gymlang-lsp#readme",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onLanguage:gymlang"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "gymlang",
+        "aliases": [
+          "GymLang",
+          "gymlang"
+        ],
+        "extensions": [
+          ".gym"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "gymlang",
+        "scopeName": "source.gymlang",
+        "path": "./syntaxes/gymlang.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "GymLang",
+      "properties": {
+        "gymlang.maxNumberOfProblems": {
+          "type": "number",
+          "default": 1000,
+          "description": "Controls the maximum number of problems produced by the server."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "gymlang.runFile",
+        "title": "Run GymLang File",
+        "category": "GymLang"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "gymlang.runFile",
+          "when": "resourceExtname == .gym"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "dependencies": {
+    "vscode-languageserver": "^8.1.0",
+    "vscode-languageserver-textdocument": "^1.0.8",
+    "vscode-uri": "^3.0.8",
+    "vscode-languageclient": "^8.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.60.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^5.0.0"
+  }
+}
